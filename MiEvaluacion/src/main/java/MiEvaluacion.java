@@ -4,7 +4,7 @@ import domain.Persona;
 public class MiEvaluacion {
     public static void main(String[] args) {
         PersonaJDBC personaJDBC = new PersonaJDBC();
-        
+        //Listar las personas
         List<Persona> personas =  personaJDBC.select();
         for(Persona persona:personas){
             System.out.println("persona: "+persona);
