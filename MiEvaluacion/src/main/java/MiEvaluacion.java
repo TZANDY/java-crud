@@ -17,12 +17,22 @@ public class MiEvaluacion {
 //        personaJDBC.insert(persona);
 //        
 
-        
-
-        Persona persona = new Persona();
+        //Borrar persona
+        /*Persona persona = new Persona();
         persona.setIdPersona(2);
-        personaJDBC.delete(persona);
+        personaJDBC.delete(persona);*/
         
+        //ACTUALIZAR PERSONA
+        Persona persona = new Persona();
+        persona.setNombre("Andi");
+        persona.setApellido("Infante");
+        persona.setEmail("andi@gmail.com");
+        persona.setIdPersona(1);
+        personaJDBC.update(persona);
+        
+        
+        
+        //
         
     }
 }
