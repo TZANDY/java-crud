@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 public class UsuarioJDBC {
-    public Connection conexionTransaccional;
+    private Connection conexionTransaccional;
     private static final String SQL_SELECT = "SELECT idusuario, usuario, password from usuario;";
     private static final String SQL_UPDATE = "UPDATE usuario set usuario=?, password=? where idusuario=?";
     private static final String SQL_DELETE = "DELETE usuario where idusuario=?";
@@ -55,7 +55,7 @@ public class UsuarioJDBC {
     return usuarios;
     }
     
-    public int insert(Usuario usuario) {
+    public int insert(Usuario usuario) throws SQLException {
         int rows = 0;
         Connection cn = null;
         PreparedStatement stmt=null;
@@ -67,9 +67,7 @@ public class UsuarioJDBC {
             System.out.println("EJECUTANDO QUERY: "+SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("REGISTROS INSERTADOS: "+rows);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
+        } finally{
             Conexion.close(stmt);
             if(this.conexionTransaccional==null){
                 Conexion.close(cn);
@@ -88,6 +86,10 @@ public class UsuarioJDBC {
             stmt.setString(1, usuario.getUsuario());
             stmt.setString(2, usuario.getPassword());
             stmt.setInt(3, usuario.getIdUsuario());
+            
+            System.out.println("EJECUTANDO QUERY: "+SQL_UPDATE);
+            rows=stmt.executeUpdate();
+            System.out.println("REGISTROS ACTUALIZADOS: "+rows);
         } finally{
             Conexion.close(stmt);
             if(this.conexionTransaccional==null){

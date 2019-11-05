@@ -3,7 +3,7 @@ import datos.PersonaJDBC;
 import domain.Persona;
 public class MiEvaluacion {
     public static void main(String[] args) {
-        PersonaJDBC personaJDBC = new PersonaJDBC();
+        /*PersonaJDBC personaJDBC = new PersonaJDBC();
         //Listar las personas
         List<Persona> personas =  personaJDBC.select();
         for(Persona persona:personas){
@@ -23,6 +23,7 @@ public class MiEvaluacion {
         personaJDBC.delete(persona);*/
         
         //ACTUALIZAR PERSONA
+        /*
         Persona persona = new Persona();
         persona.setNombre("Andi");
         persona.setApellido("Infante");
@@ -30,7 +31,7 @@ public class MiEvaluacion {
         persona.setIdPersona(1);
         personaJDBC.update(persona);
         
-        
+        */
         
         //
         

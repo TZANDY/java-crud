@@ -24,6 +24,7 @@ public class ManejoPersona {
             //por defecto el autocommit esta activado pero debemos desactivarlo para realizarlo nosotros el autocomit
             if(conexion.getAutoCommit()==true){conexion.setAutoCommit(false);}
             PersonaJDBC personaJDBC = new PersonaJDBC(conexion);
+            
             Persona persona = new Persona();
             persona.setIdPersona(1);
             persona.setNombre("Andi Joel");
